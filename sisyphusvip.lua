@@ -298,6 +298,19 @@ local TogglePyramidRelic = Tabs.Relics:CreateToggle({
                 [2] = 1
             }
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            local args = {
+                [1] = "4",
+                [2] = 1
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
         end
         while PiramidRelic do
             Pyramid()
@@ -317,6 +330,19 @@ local ToggleHeavenRelic = Tabs.Relics:CreateToggle({
                 [1] = "5",
                 [2] = 1
             }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            local args = {
+                [1] = "5",
+                [2] = 1
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
         end
         while HeavenRelic do
