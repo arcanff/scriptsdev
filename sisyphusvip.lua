@@ -300,7 +300,7 @@ local TogglePyramidRelic = Tabs.Relics:CreateToggle({
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
         end
         while PiramidRelic do
-            Pyramid(11)
+            Pyramid()
         end
     end,
 })
@@ -319,7 +319,7 @@ local ToggleHeavenRelic = Tabs.Relics:CreateToggle({
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
         end
         while HeavenRelic do
-            Heaven(11)
+            Heaven()
         end
     end,
 })
