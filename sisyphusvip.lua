@@ -301,6 +301,7 @@ local TogglePyramidRelic = Tabs.Relics:CreateToggle({
         end
         while PiramidRelic do
             Pyramid()
+            wait(1/8)
         end
     end,
 })
@@ -320,7 +321,7 @@ local ToggleHeavenRelic = Tabs.Relics:CreateToggle({
         end
         while HeavenRelic do
             Heaven()
-            wait() 
+            wait(1/8) 
         end
     end,
 })
