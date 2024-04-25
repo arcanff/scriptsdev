@@ -24,6 +24,7 @@ local Window = Rayfield:CreateWindow({
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> EASTER TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Tabs = {
     Easter = Window:CreateTab("EASTER", nil),
+    BlackHole = Window:CreateTab("BLACK HOLE", nil),
     Farm = Window:CreateTab("FARM", nil),
     Relics = Window:CreateTab("RELICS", nil),
     Xtras = Window:CreateTab("XTRAS", nil)
@@ -99,13 +100,36 @@ local Cat = Tabs.Easter:CreateButton({
     end,
 })
 
--- local Coins = Tabs.Easter:CreateButton({
---     Name = "COINS",
---     Callback = function()
---         game:GetService("ReplicatedStorage"):WaitForChild("Easter"):WaitForChild("ExchangeCoin"):FireServer()
---     end,
--- })
+local Coins = Tabs.Easter:CreateButton({
+    Name = "COINS",
+    Callback = function()
+        game:GetService("ReplicatedStorage"):WaitForChild("Easter"):WaitForChild("ExchangeCoin"):FireServer()
+    end,
+})
 
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PUSH SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+local Egg = Tabs.BlackHole:CreateSection("Black Hole")
+
+local active = false 
+local BlackHole = Tabs.BlackHole:CreateToggle({
+    Name = "Activate Black Hole Spawn",
+    CurrentValue = false,
+    Flag = "BlackHole",
+    Callback = function(value)
+        active = value -- 
+        local function BlackHoleEvent()
+            local args = {
+                [1] = "BlackHoleExclusive"
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("BlackHole"):WaitForChild("[C-S]TryGetBlackHoleReward"):FireServer(unpack(args))
+        end
+        while active do
+            BlackHoleEvent()
+            wait() -- 
+        end
+    end,
+})
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PUSH SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Push = Tabs.Farm:CreateSection("PUSH")
