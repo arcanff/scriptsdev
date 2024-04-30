@@ -1,8 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "SISYPHUS SIMULATOR [💎]",
-    LoadingTitle = "VIP SISYPHUS SIMULATOR",
+    Name = "SISYPHUS SIMULATOR",
+    LoadingTitle = "SISYPHUS SIMULATOR",
     LoadingSubtitle = "By ARCAN",
     ConfigurationSaving = {
         Enabled = false,
@@ -15,9 +15,9 @@ local Window = Rayfield:CreateWindow({
         Subtitle = "Key System",
         Note = "Key In Discord Server",
         FileName = "SisyphusKeyHub", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+        SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
         GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-        Key = {"1"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+        Key = {"https://pastebin.com/raw/QmPifjyX"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
     }
 })
 
@@ -100,29 +100,85 @@ local Cat = Tabs.Easter:CreateButton({
     end,
 })
 
-local Coins = Tabs.Easter:CreateButton({
-    Name = "COINS",
-    Callback = function()
-        game:GetService("ReplicatedStorage"):WaitForChild("Easter"):WaitForChild("ExchangeCoin"):FireServer()
+local CoinsToggle = Tabs.Easter:CreateToggle({
+    Name = "Coins",
+    CurrentValue = false,
+    Flag = "CoinsToggle",
+    Callback = function(value)
+        Repeat = value 
+        local function Coins()
+            game:GetService("ReplicatedStorage"):WaitForChild("Easter"):WaitForChild("ExchangeCoin"):FireServer()
+        end
+        while Repeat do
+            Coins()
+            wait()
+        end
     end,
 })
 
 
--- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PUSH SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-local Egg = Tabs.BlackHole:CreateSection("Black Hole")
+local active = false 
+local EasterEgg1 = Tabs.Easter:CreateToggle({
+    Name = "EasterEgg1",
+    CurrentValue = false,
+    Flag = "EasterEgg1",
+    Callback = function(value)
+        active = value -- 
+        local function EasterEgg2()
+            local args = {
+                [1] = "Easter1",
+                [2] = 5
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))            
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))            
+        end
+        while active do
+            EasterEgg2()
+            wait() -- 
+        end
+    end,
+})
 
 local active = false 
-local BlackHole = Tabs.BlackHole:CreateToggle({
-    Name = "Activate Black Hole Spawn",
+local EasterEgg2 = Tabs.Easter:CreateToggle({
+    Name = "EasterEgg2",
     CurrentValue = false,
-    Flag = "BlackHole",
+    Flag = "EasterEgg2",
+    Callback = function(value)
+        active = value -- 
+        local function EasterEgg2()
+            local args = {
+                [1] = "Easter2",
+                [2] = 5
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))            
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+        end
+        while active do
+            EasterEgg2()
+            wait() -- 
+        end
+    end,
+})
+
+local Paragraph = Tabs.Easter:CreateParagraph({Title = "SERVER HOP", Content = "Server hop is not working"})
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> BLACK HOLE SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+local Egg = Tabs.BlackHole:CreateSection("Black Hole")
+local active = false 
+local BlackHoleExclusive = Tabs.BlackHole:CreateToggle({
+    Name = "Activate Black Hole Exclusive Spawn",
+    CurrentValue = false,
+    Flag = "BlackHoleExclusive",
     Callback = function(value)
         active = value -- 
         local function BlackHoleEvent()
             local args = {
-                [1] = "BlackHoleExclusive"
+                [1] = {}
             }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("BlackHole"):WaitForChild("[C-S]TryGetBlackHoleReward"):FireServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))
         end
         while active do
             BlackHoleEvent()
@@ -130,6 +186,28 @@ local BlackHole = Tabs.BlackHole:CreateToggle({
         end
     end,
 })
+
+local active = false 
+local BlackHoleLegendary = Tabs.BlackHole:CreateToggle({
+    Name = "Activate Black Hole Legendary Spawn",
+    CurrentValue = false,
+    Flag = "BlackHoleLegendary",
+    Callback = function(value)
+        active = value -- 
+        local function BlackHoleEvent()
+            local args = {
+                [1] = {}
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))  
+        end
+        while active do
+            BlackHoleEvent()
+            wait() -- 
+        end
+    end,
+})
+
+local Paragraph = Tabs.BlackHole:CreateParagraph({Title = "WARNING!", Content = "Activate both, can lag the game or autoclose the script"})
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PUSH SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Push = Tabs.Farm:CreateSection("PUSH")
@@ -245,108 +323,86 @@ local ChristmasUp = Tabs.Farm:CreateToggle({
         end
     end,
 })
-
-local Egg = Tabs.Farm:CreateSection("NETHER")
-
-
-local ToggleNether = Tabs.Farm:CreateToggle({
-    Name = "COINS",
-    CurrentValue = false,
-    Flag = "ToggleNether",
-    Callback = function(value)
-        active = value -- 
-        local function Coins()
-            local args = {
-                [1] = -2
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerEnd"):FireServer(true,1)
-        end
-        while active do
-            Coins()
-            wait()
-        end
-    end,
-})
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> RELICS SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-local Relics = Tabs.Relics:CreateSection("RELICS")
+-- local Relics = Tabs.Relics:CreateSection("RELICS")
 
-local ToggleAtlantisRelic = Tabs.Relics:CreateToggle({
-    Name = "ATLANTIS",
-    CurrentValue = false,
-    Flag = "ToggleAtlantisRelic",
-    Callback = function(value)
-        AtlantisRelic = value 
-        local function Atlantis()
-            local args = {
-                [1] = "2",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while AtlantisRelic do
-            Atlantis()
-            wait() 
-        end
-    end,
-})
+-- local ToggleAtlantisRelic = Tabs.Relics:CreateToggle({
+--     Name = "ATLANTIS",
+--     CurrentValue = false,
+--     Flag = "ToggleAtlantisRelic",
+--     Callback = function(value)
+--         AtlantisRelic = value 
+--         local function Atlantis()
+--             local args = {
+--                 [1] = "2",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while AtlantisRelic do
+--             Atlantis()
+--             wait() 
+--         end
+--     end,
+-- })
 
-local ToggleTempleRelic = Tabs.Relics:CreateToggle({
-    Name = "TEMPLE",
-    CurrentValue = false,
-    Flag = "ToggleTempleRelic",
-    Callback = function(value)
-        TempleRelic = value 
-        local function Temple()
-            local args = {
-                [1] = "3",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while TempleRelic do
-            Temple()
-            wait() 
-        end
-    end,
-})
+-- local ToggleTempleRelic = Tabs.Relics:CreateToggle({
+--     Name = "TEMPLE",
+--     CurrentValue = false,
+--     Flag = "ToggleTempleRelic",
+--     Callback = function(value)
+--         TempleRelic = value 
+--         local function Temple()
+--             local args = {
+--                 [1] = "3",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while TempleRelic do
+--             Temple()
+--             wait() 
+--         end
+--     end,
+-- })
 
-local TogglePyramidRelic = Tabs.Relics:CreateToggle({
-    Name = "PYRAMID",
-    CurrentValue = false,
-    Flag = "TogglePyramidRelic",
-    Callback = function(value)
-        PiramidRelic = value 
-        local function Pyramid()
-            local args = {
-                [1] = "4",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while PiramidRelic do
-            Pyramid()
-        end
-    end,
-})
+-- local TogglePyramidRelic = Tabs.Relics:CreateToggle({
+--     Name = "PYRAMID",
+--     CurrentValue = false,
+--     Flag = "TogglePyramidRelic",
+--     Callback = function(value)
+--         PiramidRelic = value 
+--         local function Pyramid()
+--             local args = {
+--                 [1] = "4",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while PiramidRelic do
+--             Pyramid()
+--         end
+--     end,
+-- })
 
-local ToggleHeavenRelic = Tabs.Relics:CreateToggle({
-    Name = "HEAVEN",
-    CurrentValue = false,
-    Flag = "ToggleHeavenRelic",
-    Callback = function(value)
-        HeavenRelic = value 
-        local function Heaven()
-            local args = {
-                [1] = "5",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while HeavenRelic do
-            Heaven()
-        end
-    end,
-})
+-- local ToggleHeavenRelic = Tabs.Relics:CreateToggle({
+--     Name = "HEAVEN",
+--     CurrentValue = false,
+--     Flag = "ToggleHeavenRelic",
+--     Callback = function(value)
+--         HeavenRelic = value 
+--         local function Heaven()
+--             local args = {
+--                 [1] = "5",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while HeavenRelic do
+--             Heaven()
+--         end
+--     end,
+-- })
 
 local ToggleSpaceRelic = Tabs.Relics:CreateToggle({
     Name = "SPACE",
@@ -368,45 +424,45 @@ local ToggleSpaceRelic = Tabs.Relics:CreateToggle({
     end,
 })
 
-local ToggleCoveRelic = Tabs.Relics:CreateToggle({
-    Name = "COVE",
-    CurrentValue = false,
-    Flag = "ToggleCoveRelic",
-    Callback = function(value)
-        CoveRelic = value 
-        local function Cove()
-            local args = {
-                [1] = "7",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while CoveRelic do
-            Cove()
-            wait()
-        end
-    end,
-})
+-- local ToggleCoveRelic = Tabs.Relics:CreateToggle({
+--     Name = "COVE",
+--     CurrentValue = false,
+--     Flag = "ToggleCoveRelic",
+--     Callback = function(value)
+--         CoveRelic = value 
+--         local function Cove()
+--             local args = {
+--                 [1] = "7",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while CoveRelic do
+--             Cove()
+--             wait()
+--         end
+--     end,
+-- })
 
-local ToggleTimeRelic = Tabs.Relics:CreateToggle({
-    Name = "TIME",
-    CurrentValue = false,
-    Flag = "ToggleTimeRelic",
-    Callback = function(value)
-        TimeRelic = value 
-        local function Time()
-            local args = {
-                [1] = "8",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while TimeRelic do
-            Time()
-            wait()
-        end
-    end,
-})
+-- local ToggleTimeRelic = Tabs.Relics:CreateToggle({
+--     Name = "TIME",
+--     CurrentValue = false,
+--     Flag = "ToggleTimeRelic",
+--     Callback = function(value)
+--         TimeRelic = value 
+--         local function Time()
+--             local args = {
+--                 [1] = "8",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while TimeRelic do
+--             Time()
+--             wait()
+--         end
+--     end,
+-- })
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> XTRAS SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Xtras = Tabs.Xtras:CreateSection("FUNCTIONS")
@@ -423,45 +479,45 @@ local WalkSpeed = Tabs.Xtras:CreateSlider({
     end,
 })
 
-local Slider = Tabs.Xtras:CreateSlider({
-    Name = "Jump [don't work]",
-    Range = {0, 300},
-    Increment = 1,
-    Suffix = "Jump Power",
-    CurrentValue = 50,
-    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Value)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-    end,
-})
+-- local Slider = Tabs.Xtras:CreateSlider({
+--     Name = "Jump [don't work]",
+--     Range = {0, 300},
+--     Increment = 1,
+--     Suffix = "Jump Power",
+--     CurrentValue = 50,
+--     Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+--     Callback = function(Value)
+--         game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+--     end,
+-- })
 
-local Button = Tabs.Xtras:CreateButton({
-    Name = "Server Hop",
-    Callback = function()
-        ServerHop() 
-    end,
-})
+-- local Button = Tabs.Xtras:CreateButton({
+--     Name = "Server Hop",
+--     Callback = function()
+--         ServerHop() 
+--     end,
+-- })
 
 
-local AFK = Tabs.Xtras:CreateToggle({
-    Name = "Anti-AFK",
-    CurrentValue = false,
-    Flag = "AFK",
-    Callback = function(value)
-        active = value -- 
+-- local AFK = Tabs.Xtras:CreateToggle({
+--     Name = "Anti-AFK",
+--     CurrentValue = false,
+--     Flag = "AFK",
+--     Callback = function(value)
+--         active = value -- 
 
-        -- 
-        local function AntiAFK()
-            game.Players.LocalPlayer.Character.Humanoid.Jump = true
-        end
+--         -- 
+--         local function AntiAFK()
+--             game.Players.LocalPlayer.Character.Humanoid.Jump = true
+--         end
 
-        -- 
-        while active do
-            AntiAFK()
-            wait() -- qe3xrfcsw
-        end
-    end,
-})
+--         -- 
+--         while active do
+--             AntiAFK()
+--             wait() -- qe3xrfcsw
+--         end
+--     end,
+-- })
 
 local StartsGems = Tabs.Xtras:CreateToggle({
     Name = "Starts to Gems",
