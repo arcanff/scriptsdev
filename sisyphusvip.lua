@@ -24,10 +24,11 @@ local Window = Rayfield:CreateWindow({
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> EASTER TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Tabs = {
     Easter = Window:CreateTab("EASTER", nil),
-    BlackHole = Window:CreateTab("BLACK HOLE", nil),
+    -- BlackHole = Window:CreateTab("BLACK HOLE", nil),
     Farm = Window:CreateTab("FARM", nil),
-    Relics = Window:CreateTab("RELICS", nil),
-    Xtras = Window:CreateTab("XTRAS", nil)
+    -- Relics = Window:CreateTab("RELICS", nil),
+    Xtras = Window:CreateTab("XTRAS", nil),
+    GifEggs = Window:CreateTab("CHRISTMAS EGGS", nil)
 }
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> EGG SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -166,48 +167,48 @@ local EasterEgg2 = Tabs.Easter:CreateToggle({
 local Paragraph = Tabs.Easter:CreateParagraph({Title = "SERVER HOP", Content = "Server hop is not working"})
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> BLACK HOLE SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-local Egg = Tabs.BlackHole:CreateSection("Black Hole")
-local active = false 
-local BlackHoleExclusive = Tabs.BlackHole:CreateToggle({
-    Name = "Activate Black Hole Exclusive Spawn",
-    CurrentValue = false,
-    Flag = "BlackHoleExclusive",
-    Callback = function(value)
-        active = value -- 
-        local function BlackHoleEvent()
-            local args = {
-                [1] = {}
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))
-        end
-        while active do
-            BlackHoleEvent()
-            wait() -- 
-        end
-    end,
-})
+-- local Egg = Tabs.BlackHole:CreateSection("Black Hole")
+-- local active = false 
+-- local BlackHoleExclusive = Tabs.BlackHole:CreateToggle({
+--     Name = "Activate Black Hole Exclusive Spawn",
+--     CurrentValue = false,
+--     Flag = "BlackHoleExclusive",
+--     Callback = function(value)
+--         active = value -- 
+--         local function BlackHoleEvent()
+--             local args = {
+--                 [1] = {}
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))
+--         end
+--         while active do
+--             BlackHoleEvent()
+--             wait() -- 
+--         end
+--     end,
+-- })
 
-local active = false 
-local BlackHoleLegendary = Tabs.BlackHole:CreateToggle({
-    Name = "Activate Black Hole Legendary Spawn",
-    CurrentValue = false,
-    Flag = "BlackHoleLegendary",
-    Callback = function(value)
-        active = value -- 
-        local function BlackHoleEvent()
-            local args = {
-                [1] = {}
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))  
-        end
-        while active do
-            BlackHoleEvent()
-            wait() -- 
-        end
-    end,
-})
+-- local active = false 
+-- local BlackHoleLegendary = Tabs.BlackHole:CreateToggle({
+--     Name = "Activate Black Hole Legendary Spawn",
+--     CurrentValue = false,
+--     Flag = "BlackHoleLegendary",
+--     Callback = function(value)
+--         active = value -- 
+--         local function BlackHoleEvent()
+--             local args = {
+--                 [1] = {}
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Pet"):WaitForChild("[C-S]TryDeletePet"):FireServer(unpack(args))  
+--         end
+--         while active do
+--             BlackHoleEvent()
+--             wait() -- 
+--         end
+--     end,
+-- })
 
-local Paragraph = Tabs.BlackHole:CreateParagraph({Title = "WARNING!", Content = "Activate both, can lag the game or autoclose the script"})
+-- local Paragraph = Tabs.BlackHole:CreateParagraph({Title = "WARNING!", Content = "Activate both, can lag the game or autoclose the script"})
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PUSH SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Push = Tabs.Farm:CreateSection("PUSH")
@@ -229,7 +230,6 @@ local AutoPush = Tabs.Farm:CreateToggle({
                 wait(.3)
             end
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerTryBall"):FireServer(PlayerBestWorld)
-            wait(.1)
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(false,0.99)
         end
         while active do
@@ -404,25 +404,25 @@ local ChristmasUp = Tabs.Farm:CreateToggle({
 --     end,
 -- })
 
-local ToggleSpaceRelic = Tabs.Relics:CreateToggle({
-    Name = "SPACE",
-    CurrentValue = false,
-    Flag = "ToggleSpaceRelic",
-    Callback = function(value)
-        SpaceRelic = value 
-        local function Space()
-            local args = {
-                [1] = "6",
-                [2] = 1
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
-        end
-        while SpaceRelic do
-            Space()
-            wait()
-        end
-    end,
-})
+-- local ToggleSpaceRelic = Tabs.Relics:CreateToggle({
+--     Name = "SPACE",
+--     CurrentValue = false,
+--     Flag = "ToggleSpaceRelic",
+--     Callback = function(value)
+--         SpaceRelic = value 
+--         local function Space()
+--             local args = {
+--                 [1] = "6",
+--                 [2] = 1
+--             }
+--             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Ornaments"):WaitForChild("[C-S]PlayerTryDoLuck"):InvokeServer(unpack(args))
+--         end
+--         while SpaceRelic do
+--             Space()
+--             wait()
+--         end
+--     end,
+-- })
 
 -- local ToggleCoveRelic = Tabs.Relics:CreateToggle({
 --     Name = "COVE",
@@ -491,33 +491,13 @@ local WalkSpeed = Tabs.Xtras:CreateSlider({
 --     end,
 -- })
 
--- local Button = Tabs.Xtras:CreateButton({
---     Name = "Server Hop",
---     Callback = function()
---         ServerHop() 
---     end,
--- })
+local Button = Tabs.Xtras:CreateButton({
+    Name = "Destroy UI",
+    Callback = function()
+        Rayfield:Destroy()
+    end,
+})
 
-
--- local AFK = Tabs.Xtras:CreateToggle({
---     Name = "Anti-AFK",
---     CurrentValue = false,
---     Flag = "AFK",
---     Callback = function(value)
---         active = value -- 
-
---         -- 
---         local function AntiAFK()
---             game.Players.LocalPlayer.Character.Humanoid.Jump = true
---         end
-
---         -- 
---         while active do
---             AntiAFK()
---             wait() -- qe3xrfcsw
---         end
---     end,
--- })
 
 local StartsGems = Tabs.Xtras:CreateToggle({
     Name = "Starts to Gems",
@@ -539,6 +519,72 @@ local StartsGems = Tabs.Xtras:CreateToggle({
         while active do
             StartGems()
             wait() -- qe3xrfcsw
+        end
+    end,
+})
+
+local IceEgg = Tabs.GifEggs:CreateToggle({
+    Name = "Coins",
+    CurrentValue = false,
+    Flag = "CoinsToggle",
+    Callback = function(value)
+        Repeat = value 
+        local function Egg()
+            local args = {
+                [1] = "Christmas1",
+                [2] = 5
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+            
+        end
+        while Repeat do
+            Egg()
+            wait()
+        end
+    end,
+})
+
+local ElkEgg = Tabs.GifEggs:CreateToggle({
+    Name = "Coins",
+    CurrentValue = false,
+    Flag = "CoinsToggle",
+    Callback = function(value)
+        Repeat = value 
+        local function Egg()
+            local args = {
+                [1] = "Christmas2",
+                [2] = 5
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+            
+        end
+        while Repeat do
+            Egg()
+            wait()
+        end
+    end,
+})
+
+local ChrisEgg = Tabs.GifEggs:CreateToggle({
+    Name = "Coins",
+    CurrentValue = false,
+    Flag = "CoinsToggle",
+    Callback = function(value)
+        Repeat = value 
+        local function Egg()
+            local args = {
+                [1] = "Christmas3",
+                [2] = 5
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+            
+        end
+        while Repeat do
+            Egg()
+            wait()
         end
     end,
 })
