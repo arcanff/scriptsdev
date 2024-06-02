@@ -100,16 +100,17 @@ local ToggleBalloos = Tabs.Chil:CreateToggle({
     end,
 })
 
+local ActiveCandie = false
 local ToggleCandies = Tabs.Chil:CreateToggle({
     Name = "Candies",
     CurrentValue = false,
     Flag = "Candies",
     Callback = function(value)
-        active = value
+        ActiveCandie = value
         local function Candies()
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("AddChildLolly"):FireServer()
         end
-        while active do
+        while ActiveCandie do
             Candies()
             wait() 
         end
@@ -119,19 +120,20 @@ local ToggleCandies = Tabs.Chil:CreateToggle({
 
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FARM TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+local ActiveClick = false
 local StrongClick = Tabs.Farm:CreateToggle({
     Name = "STRONG CLICK",
     CurrentValue = false,
     Flag = "StrongClick",
     Callback = function(value)
-        active = value -- 
+        ActiveClick = value -- 
         local function StrongClick()
             local args = {
                 [1] = game:GetService("ReplicatedStorage").Assets.Tools:FindFirstChild("8_8")
             }
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerClick"):FireServer(unpack(args))
         end
-        while active do
+        while ActiveClick do
             StrongClick()
             wait() -- 
         end
@@ -140,13 +142,13 @@ local StrongClick = Tabs.Farm:CreateToggle({
 
 local Push = Tabs.Farm:CreateSection("PUSH")
 
-local active = false 
+local ActiveBest = false 
 local AutoPush = Tabs.Farm:CreateToggle({
     Name = "AUTO PUSH BEST WORLD",
     CurrentValue = false,
     Flag = "AutoPush",
     Callback = function(value)
-        active = value -- 
+        ActiveBest = value -- 
         local function PushBestWorld()
             local args = {
                 [1] = true
@@ -166,20 +168,20 @@ local AutoPush = Tabs.Farm:CreateToggle({
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(false, 0.99)
         end
         
-        while active do
+        while ActiveBest do
             PushBestWorld()
             wait() -- 
         end
     end,
 })
 
-
+local ActiveChristmas = false 
 local ToggleChristmas = Tabs.Farm:CreateToggle({
     Name = "CHRISTMAS",
     CurrentValue = false,
     Flag = "ToggleChristmas",
     Callback = function(value)
-        active = value
+        ActiveChristmas = value
         local function Gifts()
             if game.Players.LocalPlayer.World.Value ~= -1 then -- teleport if you're on wrong world (game bugs if wrong world)
                 game:GetService("ReplicatedStorage").Remote.Event.World:FindFirstChild("[C-S]TryGoWorld"):FireServer(-1)
@@ -188,19 +190,20 @@ local ToggleChristmas = Tabs.Farm:CreateToggle({
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerTryBall"):FireServer(-1)
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(false,0.99)
         end
-        while active do
+        while ActiveChristmas do
             Gifts()
             wait() 
         end
     end,
 })
 
+local ActiveUp = false 
 local ChristmasUp = Tabs.Farm:CreateToggle({
     Name = "CHRISTMAS COUNT UP",
     CurrentValue = false,
     Flag = "ChristmasUp",
     Callback = function(value)
-        active = value 
+        ActiveUp = value 
         local function Gifts()
             if game.Players.LocalPlayer.World.Value ~= -1 then -- teleport if you're on wrong world (game bugs if wrong world)
                 game:GetService("ReplicatedStorage").Remote.Event.World:FindFirstChild("[C-S]TryGoWorld"):FireServer(-1)
@@ -209,7 +212,7 @@ local ChristmasUp = Tabs.Farm:CreateToggle({
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerTryBall"):FireServer(-1)
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Game"):WaitForChild("[C-S]PlayerEnd"):FireServer(true,1)
         end
-        while active do
+        while ActiveUp do
             Gifts()
             wait()
         end
@@ -315,19 +318,17 @@ local Button = Tabs.Xtras:CreateButton({
     end,
 })
 
+local ActiveGems = false 
 local StartsGems = Tabs.Xtras:CreateToggle({
     Name = "Starts to Gems",
     CurrentValue = false,
     Flag = "StartsGems",
     Callback = function(value)
-        active = value
+        ActiveGems = value
         local function StartGems()
-            local args = {
-                [1] = "Up_Gems"
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Eco"):WaitForChild("[C-S]PlayerTryUp"):FireServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Eco"):WaitForChild("[C-S]PlayerTryUp"):FireServer("Up_Gems")
         end
-        while active do
+        while ActiveGems do
             StartGems()
             wait() 
         end
