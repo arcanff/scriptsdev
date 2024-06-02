@@ -23,9 +23,100 @@ local Window = Rayfield:CreateWindow({
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> TABS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Tabs = {
+    Chil = Window:CreateTab("TOYS", nil),
     Farm = Window:CreateTab("FARM", nil),
-    Xtras = Window:CreateTab("XTRAS", nil),
+    Xtras = Window:CreateTab("XTRAS", nil)
 }
+
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CHILD TABS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+local Push = Tabs.Chil:CreateSection("PUSH")
+
+local ToggleHappy = Tabs.Chil:CreateToggle({
+    Name = "HAPPY!",
+    CurrentValue = false,
+    Flag = "ToggleHappy",
+    Callback = function(value)
+        active = value
+        local function Candy()
+        if game.Players.LocalPlayer.World.Value ~= -10 then -- teleport if you're on wrong world (game bugs if wrong world)
+            game:GetService("ReplicatedStorage").Remote.Event.World:FindFirstChild("[C-S]TryGoWorld"):FireServer(-10)
+            wait(.3)
+        end
+        game:GetService("ReplicatedStorage").Remote.Event.Game["[C-S]PlayerTryBall"]:FireServer(-10)
+    end
+        while active do
+            Candy()
+            wait() 
+        end
+    end,
+})
+
+local ToggleHappyEnd = Tabs.Chil:CreateToggle({
+    Name = "HAPPY! END",
+    CurrentValue = false,
+    Flag = "ToggleHappyEnd",
+    Callback = function(value)
+        active = value
+        local function CandyEnd()
+            game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(true,1)
+        end
+        while active do
+            CandyEnd()
+            wait() 
+        end
+    end,
+})
+
+local Push = Tabs.Chil:CreateSection("CLAIMABLES")
+
+local ToggleBalloos = Tabs.Chil:CreateToggle({
+    Name = "Balloons",
+    CurrentValue = false,
+    Flag = "ToggleHappyEnd",
+    Callback = function(value)
+        active = value
+        local function Balloons()
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(1)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(2)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(3)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(4)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(5)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(6)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(7)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(8)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(9)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(10)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(11)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(12)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(13)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(14)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(15)
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(16)
+        end
+        while active do
+            Balloons()
+            wait() 
+        end
+    end,
+})
+
+local ToggleCandies = Tabs.Chil:CreateToggle({
+    Name = "Candies",
+    CurrentValue = false,
+    Flag = "Candies",
+    Callback = function(value)
+        active = value
+        local function Candies()
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("AddChildLolly"):FireServer()
+        end
+        while active do
+            Candies()
+            wait() 
+        end
+    end,
+})
+
+
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FARM TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local StrongClick = Tabs.Farm:CreateToggle({
@@ -82,41 +173,6 @@ local AutoPush = Tabs.Farm:CreateToggle({
     end,
 })
 
-local ToggleHappy = Tabs.Farm:CreateToggle({
-    Name = "HAPPY!",
-    CurrentValue = false,
-    Flag = "ToggleHappy",
-    Callback = function(value)
-        active = value
-        local function Candy()
-        if game.Players.LocalPlayer.World.Value ~= -10 then -- teleport if you're on wrong world (game bugs if wrong world)
-            game:GetService("ReplicatedStorage").Remote.Event.World:FindFirstChild("[C-S]TryGoWorld"):FireServer(-10)
-            wait(.3)
-        end
-        game:GetService("ReplicatedStorage").Remote.Event.Game["[C-S]PlayerTryBall"]:FireServer(-10)
-    end
-        while active do
-            Candy()
-            wait() 
-        end
-    end,
-})
-
-local ToggleHappyEnd = Tabs.Farm:CreateToggle({
-    Name = "HAPPY! END",
-    CurrentValue = false,
-    Flag = "ToggleHappyEnd",
-    Callback = function(value)
-        active = value
-        local function CandyEnd()
-            game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(true,1)
-        end
-        while active do
-            CandyEnd()
-            wait() 
-        end
-    end,
-})
 
 local ToggleChristmas = Tabs.Farm:CreateToggle({
     Name = "CHRISTMAS",
@@ -236,21 +292,6 @@ local ToggleSuperRebirth = Tabs.Farm:CreateToggle({
         end
     end,
 })
-
-local Button = Tabs.Farm:CreateButton({
-    Name = "Candy",
-    Callback = function()
-        local function CollectCandies()
-            local collecting = true 
-            while collecting do
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("AddChildLolly"):FireServer()
-                wait()
-            end
-        end
-        spawn(CollectCandies)
-    end,
-})
-
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> XTRAS TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Xtras = Tabs.Xtras:CreateSection("FUNCTIONS")
