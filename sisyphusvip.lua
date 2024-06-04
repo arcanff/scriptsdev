@@ -31,12 +31,14 @@ local Tabs = {
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CHILD TABS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local Push = Tabs.Chil:CreateSection("PUSH")
 
+local ActiveHappy = false
+
 local ToggleHappy = Tabs.Chil:CreateToggle({
     Name = "HAPPY!",
     CurrentValue = false,
     Flag = "ToggleHappy",
     Callback = function(value)
-        active = value
+        ActiveHappy = value
         local function Candy()
         if game.Players.LocalPlayer.World.Value ~= -10 then -- teleport if you're on wrong world (game bugs if wrong world)
             game:GetService("ReplicatedStorage").Remote.Event.World:FindFirstChild("[C-S]TryGoWorld"):FireServer(-10)
@@ -44,30 +46,48 @@ local ToggleHappy = Tabs.Chil:CreateToggle({
         end
         game:GetService("ReplicatedStorage").Remote.Event.Game["[C-S]PlayerTryBall"]:FireServer(-10)
     end
-        while active do
+        while ActiveHappy do
             Candy()
             wait() 
         end
     end,
 })
 
+local ActiveEnd = false
 local ToggleHappyEnd = Tabs.Chil:CreateToggle({
     Name = "HAPPY! END",
     CurrentValue = false,
     Flag = "ToggleHappyEnd",
     Callback = function(value)
-        active = value
+        ActiveEnd = value
         local function CandyEnd()
             game:GetService("ReplicatedStorage").Remote.Event.Game:FindFirstChild("[C-S]PlayerEnd"):FireServer(true,1)
         end
-        while active do
+        while ActiveEnd do
             CandyEnd()
-            wait() 
+            task.wait(0.001)
         end
     end,
 })
 
 local Push = Tabs.Chil:CreateSection("CLAIMABLES")
+
+local ActiveCandie = false
+local ToggleCandies = Tabs.Chil:CreateToggle({
+    Name = "Candies",
+    CurrentValue = false,
+    Flag = "Candies",
+    Callback = function(value)
+        ActiveCandie = value
+        local function Candies()
+            game:GetService("ReplicatedStorage").Remote.Event.HappyChild.AddChildLolly:FireServer()
+        end
+        while ActiveCandie do
+            Candies()
+            wait() 
+        end
+    end,
+})
 
 local ToggleBalloos = Tabs.Chil:CreateToggle({
     Name = "Balloons",
@@ -100,26 +120,32 @@ local ToggleBalloos = Tabs.Chil:CreateToggle({
     end,
 })
 
-local ActiveCandie = false
+local ActiveEggs = false
 local ToggleCandies = Tabs.Chil:CreateToggle({
-    Name = "Candies",
+    Name = "Eggs",
     CurrentValue = false,
     Flag = "Candies",
     Callback = function(value)
-        ActiveCandie = value
+        ActiveEggs = value
         local function Candies()
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("AddChildLolly"):FireServer()
+            local args = {
+                [1] = "Children1",
+                [2] = 20
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+            local args = {
+                [1] = "Children2",
+                [2] = 20
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Function"):WaitForChild("Luck"):WaitForChild("[C-S]DoLuck"):InvokeServer(unpack(args))
         end
-        while ActiveCandie do
+        while ActiveEggs do
             Candies()
             wait() 
         end
     end,
 })
-
-
-
--- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FARM TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FARM TAB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 local ActiveClick = false
 local StrongClick = Tabs.Farm:CreateToggle({
     Name = "STRONG CLICK",
