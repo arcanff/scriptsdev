@@ -96,22 +96,6 @@ local ToggleBalloos = Tabs.Chil:CreateToggle({
     Callback = function(value)
         active = value
         local function Balloons()
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(1)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(2)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(3)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(4)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(5)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(6)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(7)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(8)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(9)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(10)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(11)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(12)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(13)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(14)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(15)
-            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("HappyChild"):WaitForChild("CGetOnlineReward"):FireServer(16)
         end
         while active do
             Balloons()
@@ -262,41 +246,6 @@ local ToggleAutoRebirth = Tabs.Farm:CreateToggle({
             game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Event"):WaitForChild("Eco"):WaitForChild("[C-S]PlayerTryRebirth"):FireServer()
         end
         while active_auto_rebirth do 
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
-            AutoRebirth() -- repeat the function 35 times for instant auto super rebirth
             wait() -- 
         end
     end,
